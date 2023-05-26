@@ -4,10 +4,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "description": "",
   "homepage": "https://savchenkolex.github.io/goit-js-hw-09/",
-  "main": "src/js/main.js",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-09/",
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "author": "Oleksii Savchenko",
   "license": "ISC",
