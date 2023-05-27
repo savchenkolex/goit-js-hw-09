@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.9.0"
+  },
+  "dependencies": {
+    "modern-normalize": "^2.0.0"
   }
 }
