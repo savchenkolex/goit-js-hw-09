@@ -16,3 +16,66 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  width:500px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  border: 2px solid #212121;
+  border-radius: 8px;
+
+  background-color: lightseagreen;
+  color: white;
+  font-size: 24px;
+}
+
+.field {
+  display:flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+button[data-start] {
+  background-color:darkcyan ;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  /* border: 2px solid #212121; */
+}
+
+button[data-start]:hover {
+  color: blue;
+}
+button[data-start]:active {
+  box-shadow: 6px 6px 14px -2px rgba(247,243,243,0.77) inset;
+  font-weight: 700;
+  color: yellow;
+}
+
+.time-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+#datetime-picker {
+  padding: 12px;
+  border-radius: 4px;
+  color: white;
+  background-color: #3F4458;
+}
+
+.cdt-body { 
+  background-color: #212121d6;
+}
