@@ -79,3 +79,8 @@ button[data-start]:active {
 .cdt-body { 
   background-color: #212121d6;
 }
+
+.form label > input {
+  width: 100px;
+  
+}
