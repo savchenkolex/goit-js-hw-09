@@ -1,14 +1,17 @@
 import flatpickr from "flatpickr";
+import Notiflix from 'notiflix';
 import "flatpickr/dist/flatpickr.min.css";
 require("flatpickr/dist/themes/dark.css");
 
 let intervalId = null;
 
 const buttonStart = document.querySelector('button[data-start]');
+const buttonReset = document.querySelector('button[data-reset]');
 const cunterDays = document.querySelector('span[data-days]');
 const cunterHours = document.querySelector('span[data-hours]');
 const cunterMinutes = document.querySelector('span[data-minutes]');
 const cunterSeconds = document.querySelector('span[data-seconds]');
+const inputDate = document.querySelector("#datetime-picker");
 
 const options = {
     enableTime: true,
@@ -17,19 +20,22 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
         
-        if (selectedDates[0] < new Date()) {
-            buttonStart.setAttribute('disabled', 'disabled');
-            return alert(
+        if (selectedDates[0] <= new Date()) {
+            buttonStart.setAttribute('disabled', true);
+            return Notiflix.Notify.info(
               'Please choose a date in the future! Do not look back..'
             );
           } else if (selectedDates[0] > new Date()) {
-            buttonStart.removeAttribute('disabled', 'disabled');
+            buttonStart.removeAttribute('disabled');
           }
       
           buttonStart.addEventListener('click', interval);
+          buttonReset.addEventListener('click', timerStop);
       
           function interval() {
             intervalId = setInterval(timer, 1000);
+            buttonStart.setAttribute("disabled", true);
+            inputDate.setAttribute("disabled", true);
           }
           function timer() {
             const delta = selectedDates[0] - new Date();
@@ -39,6 +45,18 @@ const options = {
             }
             const formatDelta = convertMs(delta);
             renderDate(formatDelta);
+          }
+          function timerStop(event) {
+            clearInterval(intervalId);
+            buttonStart.removeAttribute('disabled');
+            inputDate.removeAttribute('disabled');
+            const zero = {
+              days: 0,
+              hours: 0,
+              minutes: 0,
+              seconds: 0,
+            };
+            renderDate(zero);
           }
     },
   };

@@ -51,7 +51,7 @@ img {
   border-radius: 25px;
   border-bottom-width: 0;
   border-right-width: 0;
-  /* border: 2px solid #212121; */
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.8);
 }
 
 .time-wrapper button[data-start]:hover {
@@ -63,10 +63,36 @@ img {
   color: yellow;
 }
 
+.time-wrapper button:disabled {
+background-color: lightblue;
+color: gray;
+}
+
+.time-wrapper button:disabled:hover {
+color: gray;
+}
+
+.time-wrapper button[data-reset]{
+  background-color: yellow;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.8);
+  font-weight: bold;
+  
+}
+
+.time-wrapper button[data-reset]:hover{
+  background-color: blue;
+  color: yellow;
+  
+}
+.time-wrapper button[data-reset]:active{
+  box-shadow: 6px 6px 14px -2px rgba(247,243,243,0.77) inset;
+}
 .time-wrapper {
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 50px;
+
 }
 
 #datetime-picker {
